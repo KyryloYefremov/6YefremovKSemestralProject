@@ -37,7 +37,7 @@ public class ChristmasTask {
                 case 0 ->
                     end = true;
                 default ->
-                    System.out.println(ANSI_RED + "Neplatna volba." + ANSI_RESET);
+                    System.out.println(ANSI_RED + "\nNeplatna volba\n" + ANSI_RESET);
             }
             System.out.println();
         } while (!end); // end == false
@@ -52,6 +52,7 @@ public class ChristmasTask {
         System.out.println("|         2. Nastavit barvu a vzor na dekoraci       |");
         System.out.println("|                 0. Ukoncit program                 |");
         System.out.println("|****************************************************|");
+        System.out.print(">> ");
         
         
     }
@@ -59,18 +60,21 @@ public class ChristmasTask {
     // there you can change type of patterns and their colors
     private static void settings() {
         boolean end = true;
-        System.out.println("-------------------");
-        System.out.println("Vitejme v nastaveni");
-        System.out.println("Tady muzete nastavit barvy a vzory dekorace");
-        System.out.println("Nastav prvni a druhou barvu, k dispozici:");
-        System.out.println("0. Ve vychozim nastaveni (podle tematy bila/cerna)");
-        System.out.println("1. Cervena");
-        System.out.println("2. Zelena");
-        System.out.println("3. Zluta");
-        System.out.println("4. Modra");
-        System.out.println("5. Fialova");
-        System.out.println("6. Azurova");
-        System.out.println("Zadej barvu prvni dekorace:");
+        System.out.println("|******************************************************|");
+        System.out.println("|                   Vitejme v nastaveni                |");
+        System.out.println("|      Tady muzete nastavit barvy a vzory dekorace     |");
+        System.out.println("|       Nastav prvni a druhou barvu, k dispozici:      |" );
+        System.out.println("|  __________________________________________________  |");
+        System.out.println("|  0. Ve vychozim nastaveni (podle tematy bila/cerna)  |");
+        System.out.println("|                     1. Cervena                       |");
+        System.out.println("|                     2. Zelena                        |");
+        System.out.println("|                     3. Zluta                         |");
+        System.out.println("|                     4. Modra                         |");
+        System.out.println("|                     5. Fialova                       |");
+        System.out.println("|                     6. Azurova                       |");
+        System.out.println("|              Zadej barvu prvni dekorace:             |");
+        System.out.println("|******************************************************|");
+        System.out.print(">> ");
         int choice = sc.nextInt();
         do {
             switch (choice) {
@@ -90,11 +94,13 @@ public class ChristmasTask {
                     color1 = ANSI_CYAN;
                 default -> {
                     end = false;
-                    System.out.println("Neplatna volba, zkus jeste jednou");
+                    System.out.println("\nNeplatna volba, zkus jeste jednou\n");
                 }
             }
         }while(!end);
-        System.out.println("Zadej barvu druhe dekorace:");
+        System.out.println("\n" + "|*******************************|");
+        System.out.println(     "|  Zadej barvu druhe dekorace:  |");
+        System.out.println(       "|*******************************|" + "\n");
         choice = sc.nextInt();
         do {
             switch (choice) {
@@ -113,13 +119,14 @@ public class ChristmasTask {
                 case 6 ->
                     color2 = ANSI_CYAN;
                 default -> {
-                    end = false;
+                    end = false;                    
                     System.out.println("Neplatna volba, zkus jeste jednou");
                 }
             }
         }while(!end);
-        
-        System.out.println("Nastav vzory (zadej kazdy vzor jako jeden symbol) ");
+        System.out.println("|*******************************************************|");
+        System.out.println("|   Nastav vzory (zadej kazdy vzor jako jeden symbol)   |");
+        System.out.println("|*******************************************************|");
         System.out.println("Prvni:");
         pattern1 = sc.next().charAt(0);
         System.out.println("Druhy:");
