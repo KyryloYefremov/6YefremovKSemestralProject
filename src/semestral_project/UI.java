@@ -124,11 +124,19 @@ public class UI {
     public static void writeOutPolynom(int[] coeffs) {
         int degree = coeffs.length - 1;
         char x = 'x';
-        while (coeffs[degree] == 0) {
+        // Here we check if a coefficient at the highest degree is not 0. If it is, we skip writing out this element, 
+        // lowering the degree. Also we control if a degree is not less than 1, because if it is, for example, equal 0
+        // we will reduce it and we will get a negative degree, which is not valid for us, because we use it as an array index
+        while (coeffs[degree] == 0 && degree > 0) {
             degree--;
         }
-        System.out.print((coeffs[degree] > 0 ? "" : "-") + "" + (Math.abs(coeffs[degree]) == 1 && degree != 0 ? "" : Math.abs(coeffs[degree])) + ""
-                + (degree == 0 ? "" : x) + (degree <= 1 ? "" : ("^" + degree)));
+        // Here we write out elements of a polynomial 
+        // First of all, we control a sign of every element (if it is positive or negative), secondly, we control a value
+        // of coefficients (if a coef. == 1 and a degree is not equal 0 (in this case we will write out), 
+        // we will not write this coef. out. Then we control if a degree is/is not equal zero, on this depends two things:
+        // will we write out 'x' and will we write out a degree (if a degree == 1 or 0, then we will not do writing out)
+        System.out.print((coeffs[degree] >= 0 ? "" : "-") + "" + (Math.abs(coeffs[degree]) == 1 && degree != 0 ? "" : Math.abs(coeffs[degree]))
+                + "" + (degree == 0 ? "" : x) + (degree <= 1 ? "" : ("^" + degree)));
         for (int i = degree - 1; i >= 0; i--) {
             if (coeffs[i] < 0) {
                 System.out.print(" - " + (Math.abs(coeffs[i]) == 1 && i != 0 ? "" : Math.abs(coeffs[i])) + "" + (i == 0 ? "" : x) + ""
