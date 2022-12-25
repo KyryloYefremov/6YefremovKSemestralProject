@@ -88,15 +88,8 @@ public final class PolynomialTools {
      * @return new array, which has a length as a sum of highest degrees
      * (indexes) of two arrays
      */
-    public static int[] product(int[] coeffs1, int[] coeffs2) {
-        if (coeffs1.length != coeffs2.length) {
-            if (coeffs1.length > coeffs2.length) {
-                coeffs2 = makeLengthEqual(coeffs1, coeffs2);
-            } else {
-                coeffs1 = makeLengthEqual(coeffs1, coeffs2);
-            }
-        }
-        int[] productArray = new int[coeffs1.length * 2 - 1];
+    public static int[] product(int[] coeffs1, int[] coeffs2) {        
+        int[] productArray = new int[coeffs1.length + coeffs2.length - 1];
         for (int i = 0; i < coeffs1.length; i++) {
             for (int j = 0; j < coeffs2.length; j++) {
                 productArray[i + j] += coeffs1[i] * coeffs2[j];

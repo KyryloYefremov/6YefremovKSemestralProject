@@ -69,7 +69,11 @@ public class UI {
             coeffs1 = getPolynomCoeffs(degree1);
             System.out.println("❆ Zadejte stupen druheho polynomu: ");
             System.out.print(">> ");
-            degree2 = getPolynomDegree();
+            while ((degree2 = getPolynomDegree()) < 0) {
+                System.out.println("Stupen polynomu nemuze byt zaporny, skuste jeste jednou");
+                System.out.println("❆ Zadejte stupen druheho polynomu: ");
+                System.out.print(">> ");
+            }           
             System.out.println("❆ Zadejte koeficienty druheho polynomu: ");
             System.out.print(">> ");
             coeffs2 = getPolynomCoeffs(degree2);
